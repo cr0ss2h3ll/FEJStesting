@@ -8,12 +8,14 @@ module.exports = function (config) {
       'dist/*.js' , 'tests/*.js'
     ],
     preprocessors: {
-      '*.js': [ 'browserify' ]
+      '*.js': [ 'browserify' ],
+      'dist/*.js': ['browserify'],
+      'tests/*.js': ['browserify']
     },
  
     browserify: {
       debug: true,
-      transform: [ {'es6': true} ]
+        transform: ['babelify']
     },
     exclude: [],
     reporters: ['progress'],

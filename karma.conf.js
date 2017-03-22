@@ -21,16 +21,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    // don't open any browsers
-    // we'll do it with browsersync
-    // browsers: [],
     plugins: [
       'karma-chai',
       'karma-mocha',
       'karma-mocha-reporter'
     ],
-    singleRun: true,
-    browsers: ['Firefox']
+    singleRun: true
   };
 
   config.set(defaults);

@@ -2,20 +2,22 @@
 
 module.exports = function (config) {
   var defaults = {
-    basePath: '',
-    frameworks: ['mocha', 'chai'],
+    basePath: './',
+    frameworks: ['jasmine','browserify'],
     files: [
       'dist/*.js' , 'tests/*.js'
     ],
-    exclude: [],
-    reporters: ['mocha'],
-    client: {
-      mocha: {
-        reporter: 'html',
-        ui: 'bdd',
-        timeout: '2000'
-      }
+    preprocessors: {
+      '*.js': [ 'browserify' ]
     },
+ 
+    browserify: {
+      debug: true,
+      transform: [ {'es6': true} ]
+    },
+    exclude: [],
+    reporters: ['progress'],
+   
     reportSlowerThan: 500,
     port: 9876,
     colors: true,
@@ -24,8 +26,17 @@ module.exports = function (config) {
     plugins: [
       'karma-chai',
       'karma-mocha',
-      'karma-mocha-reporter'
+      'karma-mocha-reporter',
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-browserify'
     ],
+    browsers: ['Chrome'],
+
+    phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+      exitOnResourceError: false
+    },
     singleRun: true
   };
 

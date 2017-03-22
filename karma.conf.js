@@ -5,8 +5,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      'tests/**/*.js',
-      'tests/*.js'
+      'dist/*.js' , 'tests/*.js'
     ],
     exclude: [],
     reporters: ['mocha'],
@@ -30,7 +29,8 @@ module.exports = function (config) {
       'karma-mocha',
       'karma-mocha-reporter'
     ],
-    singleRun: true
+    singleRun: true,
+    browsers: ['Firefox']
   };
 
   config.set(defaults);

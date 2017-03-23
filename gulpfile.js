@@ -4,18 +4,13 @@ var KarmaServer = require('karma').Server;
 
 gulp.task('test', () => {
   var karmaConfig = {
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: false,
-    autoWatch: true,
-    usePolling: true
+    configFile: __dirname + '/karma.conf.js'
   };
 
   var karmaInstance = new KarmaServer(karmaConfig, _onKarmaExit);
 
-  // get Karma's web server instance
   var karmaWebServer = karmaInstance.get('webServer');
 
-  // listen on listening event and grab the address to pass to browserSync
   karmaWebServer.on('listening', _getConnectionDetails);
 
   karmaInstance.on('file_list_modified', browserSync.reload);

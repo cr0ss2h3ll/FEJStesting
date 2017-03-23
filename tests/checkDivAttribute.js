@@ -1,5 +1,5 @@
 const assert = require('assert');
-// import {assert} from 'assert';
+
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
@@ -8,10 +8,10 @@ describe('Array', function() {
   });
 });
 
-// describe('getDivAttribute', function() {
-//     var d = document.querySelector('.box');
+describe('getDivAttribute', function() {
+    var d = document.querySelector('.box');
 
-//     it('Should be bar', function() {
-//         expect(d.getAttribute('foo')).toBe('bar');
-//     });
-// });
+    it('Should be bar', function() {
+        expect(d.getAttribute('foo')).toBe('bar');
+    });
+});

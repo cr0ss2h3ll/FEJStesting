@@ -1,6 +1,6 @@
 'use strict';
-
 module.exports = function (config) {
+
   var defaults = {
     basePath: './',
     frameworks: ['jasmine','browserify'],
@@ -18,29 +18,32 @@ module.exports = function (config) {
         transform: ['babelify']
     },
     exclude: [],
-    reporters: ['progress'],
-   
+    reporters: ['mocha'],
+    client: {
+      useIframe: true
+    },
     reportSlowerThan: 500,
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
+    
     plugins: [
       'karma-chai',
       'karma-mocha',
       'karma-mocha-reporter',
       'karma-chrome-launcher',
       'karma-jasmine',
-      'karma-browserify'
+      'karma-browserify',
+      'karma-babel-preprocessor'
     ],
     browsers: ['Chrome'],
-
-    phantomjsLauncher: {
-      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-      exitOnResourceError: false
-    },
-    singleRun: true
+    singleRun: false,
+    autoWatch: true
+   
   };
+  
+
 
   config.set(defaults);
 };

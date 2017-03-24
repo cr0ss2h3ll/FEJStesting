@@ -12,7 +12,7 @@ module.exports = function (config) {
       'dist/*.js': ['browserify'],
       'tests/*.js': ['browserify']
     },
- 
+
     browserify: {
       debug: true,
         transform: ['babelify']
@@ -27,7 +27,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    
+
     plugins: [
       'karma-chai',
       'karma-mocha',
@@ -40,9 +40,9 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false,
     autoWatch: true
-   
+
   };
-  
+
 
 
   config.set(defaults);

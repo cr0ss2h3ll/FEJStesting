@@ -1,7 +1,12 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var KarmaServer = require('karma').Server;
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const KarmaServer = require('karma').Server;
+const ava = require('gulp-ava');
 
+gulp.task('avaTest',()=>{
+  gulp.src('./tests/avaTestCase')
+  .pipe(ava({verbose:true}));
+})
 gulp.task('test', () => {
   var karmaConfig = {
     configFile: __dirname + '/karma.conf.js'
@@ -41,4 +46,5 @@ gulp.task('test', () => {
   }
 });
 
-gulp.task('default', ['test']);
+gulp.task('karma', ['test']);
+gulp.task('ava',['avaTest']);
